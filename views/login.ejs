@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>LOgin</title>
+        <%- include('./partials/style.ejs') %>
+    </head>
+    <body class="wrapper">
+        <h2>Login page</h2>
+        <form class="user-form" method="POST" action="/login">
+             <input 
+          type="email"
+          name="email"
+          placeholder="enter your email"
+        /><br/>
+        <input 
+          type="password"
+          name="password"
+          placeholder="enter your password"
+        /><br/>
+        <input type="submit" value="Submit"/>
+        </form>
+        <p>
+            <% if(message){ %>
+           <p><%= message %></p>
+        <% } %>
+        </p>
+    </body>
+</html>

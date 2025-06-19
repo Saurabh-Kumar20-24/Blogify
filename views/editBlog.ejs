@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Edit blogs</title>
+        <%- include('./partials/style.ejs') %>
+    </head>
+    <body>
+        <%- include('./partials/topbar.ejs') %>
+        <div class="wrapper">
+            <h2>Edit Blog</h2>
+            <form method="POST" action="/updateblog?blogId=<%= blogData._id %>" class="blog-form">
+                <input name="title" value=<%= blogData.title %> type="text" placeholder="Enter blog title"/>
+                <br/><br/>
+                <textarea name="body"  placeholder="Enter blog body here"><%= blogData.body %></textarea>
+                <br/><br/>
+                <input type="submit" value="Edit"/>
+                        <p>
+                    <% if(message){ %>
+                <p><%= message %></p>
+                <% } %>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

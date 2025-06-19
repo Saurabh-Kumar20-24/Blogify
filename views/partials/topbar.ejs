@@ -1,0 +1,15 @@
+<div class="top-bar">
+    <div class="tabs">
+        <div class="tab"><a href="/">Home</a></div>
+        <% if(isAuthenticated) { %>
+        <div class="tab"><a href="/myblogs">My blogs</a></div>
+        <% } %>
+    </div>
+    <div class="logout">
+        <% if(isAuthenticated) { %>
+        <a href="logout" id="logoutButton" class="button">Logout</a>
+         <% } else { %>
+             <a href="/login" id="loginButton" class="button">Login</a>
+         <% } %>
+    </div>
+</div>
