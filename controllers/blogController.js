@@ -25,7 +25,7 @@ const home = async (req, res) => {
   }
 };
 
-const myBlogs = async (req, res) => {
+const myblogs = async (req, res) => {
   try {
     console.log("Session in /myblogs:", req.session);
     const { message } = req.query;
@@ -119,7 +119,7 @@ const deleteBlog = (req, res) => {
 
 module.exports = {
   home,
-  myBlogs,
+  myblogs,
   addBlog,
   createBlog,
   deleteBlog,
