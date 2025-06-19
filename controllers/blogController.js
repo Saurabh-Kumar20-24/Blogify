@@ -52,10 +52,10 @@ const myblogs = async (req, res) => {
     });
   }
 };
-const addBlog = (req, res) => {
+const addblog = (req, res) => {
   res.render("addblog", { message: null });
 };
-const editBlog = async (req, res) => {
+const editblog = async (req, res) => {
   try {
     const { blogId } = req.query;
     const blogData = await Blogs.findOne({ _id: blogId });
@@ -66,7 +66,7 @@ const editBlog = async (req, res) => {
   }
 };
 
-const createBlog = (req, res) => {
+const createblog = (req, res) => {
   try {
     const { title, body } = req.body;
     const newBlog = new Blogs({ title, body, userId: req.session.userId });
@@ -83,7 +83,7 @@ const createBlog = (req, res) => {
   }
 };
 
-const updateBlog = (req, res) => {
+const updateblog = (req, res) => {
   try {
     const { blogId } = req.query;
     Blogs.findByIdAndUpdate({ _id: blogId }, req.body)
@@ -100,7 +100,7 @@ const updateBlog = (req, res) => {
   }
 };
 
-const deleteBlog = (req, res) => {
+const deleteblog = (req, res) => {
   try {
     const { blogId } = req.query;
     Blogs.findOneAndDelete({ _id: blogId })
@@ -120,9 +120,9 @@ const deleteBlog = (req, res) => {
 module.exports = {
   home,
   myblogs,
-  addBlog,
-  createBlog,
-  deleteBlog,
-  editBlog,
-  updateBlog,
+  addblog,
+  createblog,
+  deleteblog,
+  editblog,
+  updateblog,
 };
