@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { register, signup, loginPage, login, allUsers } = require("./controllers/userController.js");
+const { register, signup, loginPage, login, allUsers, logout } = require("./controllers/userController.js");
 const {requireAuth} = require('./utils/auth.js');
 const { home, myBlogs, addBlog, createBlog, deleteBlog, editBlog, updateBlog } = require('./controllers/blogController.js');
 
@@ -10,7 +10,7 @@ router.get("/login", loginPage);
 router.post("/register", register);
 router.post("/login", login);
 router.get('/allusers',requireAuth, allUsers)
-router.get("/logout", loginPage);
+router.get("/logout", logout);
 router.get('/',home)
 
 

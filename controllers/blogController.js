@@ -27,15 +27,29 @@ const home = async (req, res) => {
 
 const myBlogs = async (req, res) => {
   try {
+    console.log("Session in /myblogs:", req.session);
     const { message } = req.query;
     const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).render("login", {
+        message: "Session expired or unauthorized access",
+      });
+    }
+    console.log("Looking for blogs of user:", userId); // ✅ Log userId
+
     const myBlogs = await Blogs.find({ userId });
+    console.log("Blogs found:", myBlogs.length); // ✅ Log results
+
     res.render("myblogs", {
       message: message ? base64.decode(message) : null,
       blogData: myBlogs,
     });
   } catch (error) {
-    console.log(error)
+    console.log("Error loading my blogs:", error); // ✅ This will help us
+    res.status(500).render("myblogs", {
+      message: "Internal server error",
+      blogData: [],
+    });
   }
 };
 const addBlog = (req, res) => {

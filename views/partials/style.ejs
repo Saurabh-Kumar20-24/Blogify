@@ -1,174 +1,269 @@
 <style>
-    body{
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        
-    }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
 
-    .wrapper{
-        display: flex;
-        align-items: center;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .user-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .blog-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  textarea {
+    height: 40vh;
+  }
+
+  input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  p {
+    margin-top: 16px;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .top-bar {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .top-bar .logo a {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tabs {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.tab {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+.tab:hover {
+    background-color: #444;
+}
+
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.button {
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.login-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.signup-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: 1px solid #28a745;
+}
+.logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+.signup-btn:hover {
+    background-color: #218838;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
         flex-direction: column;
-        justify-content: center;
-        height: 100vh;
+        align-items: flex-start;
     }
 
-    .user-form{
-        background-color: #fff;
-        border: 1px solid #ddd;
-        padding: 20px;
-        width: 300px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .tabs,
+    .auth-buttons {
+        margin-top: 10px;
+        flex-wrap: wrap;
     }
-    .blog-form{
-        background-color: #fff;
-        border: 1px solid #ddd;
-        padding: 20px;
-        width: 80%;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+}
 
-    input,textarea{
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 16px;
-        box-sizing: border-box;
-    }
-    textarea{
-        height: 40vh;
-    }
+  .add-button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
 
-    input[type=submit]{
-        background-color: #4caf50;
-        color: #fff;
-        padding: 10px 15px;
-        border: none;
-        cursor: pointer;
-    }
+  .blog-card {
+    max-width: 100%;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .blog-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .blog-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .blog-body {
+    margin-bottom: 15px;
+  }
+  .blog-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .edit-button,
+  .delete-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .edit-button:hover {
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+  }
+  .delete-button:hover {
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+  }
+  .sort-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: fit-content;
+  font-size: 1rem;
+}
+.sort-section select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.sort-section label {
+  font-weight: bold;
+  color: #333;
+}
 
-    input[type=submit]:hover{
-        background-color: #45a049;
-    }
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination a {
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+  }
+  .activePage {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+  }
+  .footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: 40px;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
 
-    p{
-        margin-top: 16px;
-    }
-
-    a{
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .top-bar{
-        background-color: #333;
-        color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }
-
-    .tabs{
-        display: flex;
-    }
-    .tab{
-        padding: 8px 12px;
-        cursor: pointer;
-        border-bottom: 2px solid transparent;
-    }
-    .tab > a{
-        text-decoration: none;
-        color: #fff;
-    }
-    .tab:hover{
-        border-bottom: 2px solid #fff;
-    }
-    #logoutButton{
-       padding: 8px 12px;
-       background-color: #dc3545;
-       color: #fff;
-       border: none;
-       cursor: pointer;
-    }
-    #logoutButton:hover{
-        background-color: #c82333;
-    }
-
-    .add-button{
-        display: block;
-        width: 90%;
-        padding: 10px;
-        margin: auto;
-        text-align: center;
-        text-decoration: none;
-        background-color: #007bff;
-        color: #fff;
-        border: 1px solid #007bff;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 5px;
-    }
-
-    .blog-card{
-        max-width: 100%;
-        margin: 20px;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 0 2px 4px rgba(0,0,0,0.1);
-        background-color: #fff;
-    }
-    .blog-card:hover{
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .blog-title{
-        font-size: 1.5em;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .blog-body{
-        margin-bottom: 15px;
-    }
-    .blog-actions{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .edit-button,.delete-button{
-        padding: 8px 12px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
- 
-    }
-    .edit-button:hover{
-        background-color: #4caf50;
-        color: #fff;
-        text-decoration: none;
-    }
-    .delete-button:hover{
-        background-color: #dc3545;
-        color: #fff;
-        text-decoration: none;
-
-    }
-    
-    .pagination{
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .pagination a{
-        padding: 8px 12px;
-        text-decoration:  none;
-        border: 1px solid #ddd;
-        margin-right: 5px;
-    }
-    .activePage{
-        background-color: #007bff;
-        color: #fff;
-        border: 1px solid #007bff;
-    }
+.footer p {
+  margin: 0;
+}
 </style>

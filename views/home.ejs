@@ -18,12 +18,9 @@
              <div class="blog-card">
                 <div class="blog-title"><%= blogData[i].title %></div>
                 <div class="blog-body"><%= blogData[i].body %></div>
-                <div class="blog-date">Posted on: <%= blogData[i].createdAt.toLocaleDateString() %></div>
+                <div class="blog-date"><b>Posted on:</b> <%= blogData[i].createdAt.toLocaleDateString() %></div>
 
-                <!-- <div class="blog-actions">
-                    <a href="/editblog?blogId=<%= blogData[i]._id %>" class="edit-button">Edit</a>
-                    <a href="/deleteblog?blogId=<%= blogData[i]._id %>" class="delete-button">Delete</a>
-                </div> -->
+               
              </div>    
         <% } } %>
         <div class="pagination">
@@ -34,4 +31,5 @@
             <% } %>
         </div>
     </body>
+    <%- include('./partials/footer.ejs') %>
 </html>

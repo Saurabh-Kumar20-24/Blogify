@@ -79,7 +79,7 @@ const allUsers = (req, res)=>{
 
 const logout = (req, res) =>{
   req.session.destroy(()=>{
-    return res.redirect('/login')
+    return res.redirect('/home')
   })
 }
 

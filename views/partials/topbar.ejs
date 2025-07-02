@@ -1,15 +1,20 @@
 <div class="top-bar">
-    <div class="tabs">
-        <div class="tab"><a href="/">Home</a></div>
-        <% if(isAuthenticated) { %>
-        <div class="tab"><a href="/myblogs">My blogs</a></div>
-        <% } %>
-    </div>
-    <div class="logout">
-        <% if(isAuthenticated) { %>
-        <a href="logout" id="logoutButton" class="button">Logout</a>
-         <% } else { %>
-             <a href="/login" id="loginButton" class="button">Login</a>
-         <% } %>
-    </div>
+  <div class="logo">
+    <a href="/">Blogify</a>
+  </div>
+  <div class="tabs">
+    <a href="/" class="tab">Home</a>
+    <% if (isAuthenticated) { %>
+      <a href="/myblogs" class="tab">My Blogs</a>
+      <a href="/addblog" class="tab">Add Blog</a>
+    <% } %>
+  </div>
+  <div class="auth-buttons">
+    <% if (isAuthenticated) { %>
+      <a href="/logout" class="button logout-btn">Logout</a>
+    <% } else { %>
+      <a href="/login" class="button login-btn">Login</a>
+      <a href="/signup" class="button signup-btn">Signup</a>
+    <% } %>
+  </div>
 </div>
