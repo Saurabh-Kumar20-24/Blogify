@@ -119,15 +119,6 @@ const deleteblog = (req, res) => {
 
 module.exports = {
   home,
-<<<<<<< HEAD
-  myBlogs,
-  addBlog,
-  createBlog,
-  deleteBlog,
-  editBlog,
-  updateBlog,
-};
-=======
   myblogs,
   addblog,
   createblog,
@@ -135,4 +126,4 @@ module.exports = {
   editblog,
   updateblog,
 };
->>>>>>> a40473f8cac7eb179f32cd14dae52676adcb218e
+
