@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const { register, signup, loginPage, login, allUsers, logout } = require("./controllers/userController.js");
 const {requireAuth} = require('./utils/auth.js');
-const { home, myBlogs, addBlog, createBlog, deleteBlog, editBlog, updateBlog } = require('./controllers/blogController.js');
+const { home, myblogs, addblog, createblog, deleteblog, editblog, updateblog } = require('./controllers/blogController.js');
 
 
 router.get("/signup", signup);
@@ -15,12 +15,12 @@ router.get('/',home)
 
 
 router.get('/home',home)
-router.get('/myblogs',requireAuth,myBlogs)
-router.get('/addblog',requireAuth,addBlog)
-router.get('/editblog',requireAuth,editBlog)
-router.post('/createblog',requireAuth,createBlog)
-router.post('/updateblog',requireAuth,updateBlog)
-router.get('/deleteblog',deleteBlog)
+router.get('/myblogs',requireAuth,myblogs)
+router.get('/addblog',requireAuth,addblog)
+router.get('/editblog',requireAuth,editblog)
+router.post('/createblog',requireAuth,createblog)
+router.post('/updateblog',requireAuth,updateblog)
+router.get('/deleteblog',deleteblog)
 
 
 

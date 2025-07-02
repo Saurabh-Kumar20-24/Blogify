@@ -54,7 +54,7 @@ const login  = async (req, res) => {
     const passwordMatch = await bcrypt.compare(password,existingUser.password);
     if(passwordMatch){
        req.session.userId  = existingUser._id;
-       return res.redirect('/')
+       return res.redirect('/myblogs')
     }else{
         return res.render("login", {
         message: "invalid password",

@@ -25,7 +25,7 @@ const home = async (req, res) => {
   }
 };
 
-const myBlogs = async (req, res) => {
+const myblogs = async (req, res) => {
   try {
     console.log("Session in /myblogs:", req.session);
     const { message } = req.query;
@@ -52,10 +52,10 @@ const myBlogs = async (req, res) => {
     });
   }
 };
-const addBlog = (req, res) => {
+const addblog = (req, res) => {
   res.render("addblog", { message: null });
 };
-const editBlog = async (req, res) => {
+const editblog = async (req, res) => {
   try {
     const { blogId } = req.query;
     const blogData = await Blogs.findOne({ _id: blogId });
@@ -66,7 +66,7 @@ const editBlog = async (req, res) => {
   }
 };
 
-const createBlog = (req, res) => {
+const createblog = (req, res) => {
   try {
     const { title, body } = req.body;
     const newBlog = new Blogs({ title, body, userId: req.session.userId });
@@ -83,7 +83,7 @@ const createBlog = (req, res) => {
   }
 };
 
-const updateBlog = (req, res) => {
+const updateblog = (req, res) => {
   try {
     const { blogId } = req.query;
     Blogs.findByIdAndUpdate({ _id: blogId }, req.body)
@@ -100,7 +100,7 @@ const updateBlog = (req, res) => {
   }
 };
 
-const deleteBlog = (req, res) => {
+const deleteblog = (req, res) => {
   try {
     const { blogId } = req.query;
     Blogs.findOneAndDelete({ _id: blogId })
@@ -119,6 +119,7 @@ const deleteBlog = (req, res) => {
 
 module.exports = {
   home,
+<<<<<<< HEAD
   myBlogs,
   addBlog,
   createBlog,
@@ -126,3 +127,12 @@ module.exports = {
   editBlog,
   updateBlog,
 };
+=======
+  myblogs,
+  addblog,
+  createblog,
+  deleteblog,
+  editblog,
+  updateblog,
+};
+>>>>>>> a40473f8cac7eb179f32cd14dae52676adcb218e
